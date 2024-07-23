@@ -10,7 +10,9 @@ authors = [
 dynamic = ["version"]
 description = "This is a Python Project Template"
 # Add here the production dependencies
-dependencies = []
+dependencies = [
+    "marshmallow==3.21.3",
+]
 
 [project.optional-dependencies]
 dev = [
