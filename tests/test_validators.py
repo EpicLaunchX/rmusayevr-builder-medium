@@ -20,7 +20,7 @@ def test_burger_schema_invalid_bread():
 
 
 def test_burger_schema_invalid_patty():
-    data = {"bread": "Whole Wheat", "patty": "", "sauce": "Ketchup", "toppings": ["Lettuce", "Tomato"]}
+    data = {"bread": "Whole Wheat", "patty": "", "sauce": "Ketchup", "toppings": ["Lettuce"]}
     with pytest.raises(marshmallow.ValidationError) as excinfo:
         BurgerSchema().load(data)
     assert "Patty is required." in str(excinfo.value)
