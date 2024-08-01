@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 import marshmallow
 
-from src.pytemplate.domain.validators import BurgerSchema
+from pytemplate.domain.validators import BurgerSchema
 
 
 @dataclass
