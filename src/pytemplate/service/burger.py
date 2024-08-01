@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src.pytemplate.domain.models import Burger, burger_factory
+from pytemplate.domain.models import Burger, burger_factory
 
 
 class BurgerBuilder(ABC):

@@ -1,6 +1,6 @@
 import pytest
 
-from src.pytemplate.domain.models import Burger
+from pytemplate.domain.models import Burger
 from src.pytemplate.service.burger import BurgerBuilder, CheeseBurgerBuilder
 
 
