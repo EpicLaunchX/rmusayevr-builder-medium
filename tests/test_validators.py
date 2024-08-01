@@ -5,7 +5,7 @@ from src.pytemplate.domain.validators import BurgerSchema
 
 
 def test_burger_schema_valid_data():
-    data = {"bread": "Whole Wheat", "patty": "Beef", "sauce": "Ketchup", "toppings": ["Lettuce", "Tomato"]}
+    data = {"bread": "Wheat", "patty": "Beef", "sauce": "Ketchup", "toppings": ["Lettuce", "Tomato"]}
     try:
         BurgerSchema().load(data)
     except marshmallow.ValidationError:
