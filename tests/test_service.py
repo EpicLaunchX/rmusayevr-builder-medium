@@ -97,7 +97,7 @@ def test_toppings_not_implemented():
     builder = ConcreteBurgerBuilder()
 
     with pytest.raises(NotImplementedError):
-        builder.toppings(toppings=["Lettuce", "Tomato"])
+        builder.toppings(toppings=["Lettuce"])
 
 
 def test_build_not_implemented():
