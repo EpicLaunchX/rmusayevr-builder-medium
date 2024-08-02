@@ -1,6 +1,7 @@
 import pytest
 
-from src.pytemplate.service.burger import BurgerBuilder
+from pytemplate.domain.models import Burger
+from src.pytemplate.service.burger import BurgerBuilder, CheeseBurgerBuilder
 
 
 def test_bread_not_implemented():
@@ -24,7 +25,7 @@ def test_bread_not_implemented():
     builder = ConcreteBurgerBuilder()
 
     with pytest.raises(NotImplementedError):
-        builder.bread(bread="Whole Wheat")
+        builder.bread(bread="Wheat")
 
 
 def test_patty_not_implemented():
@@ -96,7 +97,7 @@ def test_toppings_not_implemented():
     builder = ConcreteBurgerBuilder()
 
     with pytest.raises(NotImplementedError):
-        builder.toppings(toppings=["Lettuce", "Tomato"])
+        builder.toppings(toppings=["Lettuce"])
 
 
 def test_build_not_implemented():
@@ -121,3 +122,14 @@ def test_build_not_implemented():
 
     with pytest.raises(NotImplementedError):
         builder.build()
+
+
+def test_cheese_burger_builder():
+    builder = CheeseBurgerBuilder()
+    builder.bread("Wheat").patty("Chicken").sauce("Mayo").toppings(["Lettuce", "Tomato"])
+    burger = builder.build()
+    assert isinstance(burger, Burger)
+    assert burger.bread == "Wheat"
+    assert burger.patty == "Chicken"
+    assert burger.sauce == "Mayo"
+    assert burger.toppings == ["Lettuce", "Tomato"]
