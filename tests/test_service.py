@@ -25,7 +25,7 @@ def test_bread_not_implemented():
     builder = ConcreteBurgerBuilder()
 
     with pytest.raises(NotImplementedError):
-        builder.bread(bread="Whole Wheat")
+        builder.bread(bread="Wheat")
 
 
 def test_patty_not_implemented():
