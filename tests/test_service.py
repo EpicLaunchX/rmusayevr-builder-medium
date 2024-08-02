@@ -1,7 +1,7 @@
 import pytest
 
 from pytemplate.domain.models import Burger
-from src.pytemplate.service.burger import BurgerBuilder, CheeseBurgerBuilder
+from src.pytemplate.service.burger import BurgerBuilder, CheeseBurgerBuilder, ChickenBurgerBuilder
 
 
 def test_bread_not_implemented():
@@ -130,6 +130,17 @@ def test_cheese_burger_builder():
     burger = builder.build()
     assert isinstance(burger, Burger)
     assert burger.bread == "Wheat"
+    assert burger.patty == "Chicken"
+    assert burger.sauce == "Mayo"
+    assert burger.toppings == ["Lettuce", "Tomato"]
+
+
+def test_chicken_burger_builder():
+    builder = ChickenBurgerBuilder()
+    builder.bread("Whole Wheat").patty("Chicken").sauce("Mayo").toppings(["Lettuce", "Tomato"])
+    burger = builder.build()
+    assert isinstance(burger, Burger)
+    assert burger.bread == "Whole Wheat"
     assert burger.patty == "Chicken"
     assert burger.sauce == "Mayo"
     assert burger.toppings == ["Lettuce", "Tomato"]
